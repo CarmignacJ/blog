@@ -1,9 +1,11 @@
 <?php
 //On inclut le fichier dont on a besoin (ici à la racine de notre site)
 require 'Database.php';
+
 //Ne pas oublier d'ajouter le fichier Article.php
 require 'Article.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,7 +24,7 @@ require 'Article.php';
     {
         ?>
         <div>
-            <h2><?= htmlspecialchars($article['title']);?></h2>
+            <h2><a href="single.php?articleId=<?= htmlspecialchars($article['id']);?>"><?= htmlspecialchars($article['title']);?></a></h2>
             <p><?= htmlspecialchars($article['content']);?></p>
             <p><?= htmlspecialchars($article['author']);?></p>
             <p>Créé le : <?= htmlspecialchars($article['createdAt']);?></p>
