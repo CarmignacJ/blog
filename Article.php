@@ -8,9 +8,9 @@ class Article extends Database
         return $this->createQuery($sql);
     }
 
-    public function getArticle($articleId)
+    public function getArticle($articleld)
     {
         $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
-        return $this->createQuery($sql, [$articleId]);
+        return $this->createQuery($sql, [$articleld]);
     }
 }

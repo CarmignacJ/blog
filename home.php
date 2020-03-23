@@ -22,7 +22,7 @@ require 'Article.php';
     {
         ?>
         <div>
-            <h2><a href="single.php?articleId=<?= htmlspecialchars($article->id);?>"><?= htmlspecialchars($article->title);?></a></h2>
+            <h2><a href="single.php?articleld=<?= htmlspecialchars($article->id);?>"><?= htmlspecialchars($article->title);?></a></h2>
             <p><?= htmlspecialchars($article->content);?></p>
             <p><?= htmlspecialchars($article->author);?></p>
             <p>Créé le : <?= htmlspecialchars($article->createdAt);?></p>
