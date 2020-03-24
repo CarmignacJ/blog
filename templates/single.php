@@ -1,10 +1,10 @@
 <?php
 //On inclut le fichier dont on a besoin (ici à la racine de notre site)
-require 'Database.php';
+require '../src/DAO/DAO.php';
 //Ne pas oublier d'ajouter le fichier Article.php
-require 'Article.php';
+require '../src/DAO/ArticleDAO.php';
 //Ne pas oublier d'ajouter le fichier Comment.php
-require 'Comment.php';
+require '../src/DAO/CommentDAO.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ require 'Comment.php';
     <p>En construction</p>
     <?php
     $article = new Article();
-    $articles = $article->getArticle($_GET['articleld']);
+    $articles = $article->getArticle($_GET['articleid']);
     $article = $articles->fetch()
     ?>
     <div>
@@ -38,7 +38,7 @@ require 'Comment.php';
         <h3>Commentaires</h3>
         <?php
         $comment = new Comment();
-        $comments = $comment->getCommentsFromArticle($_GET['articleld']);
+        $comments = $comment->getCommentsFromArticle($_GET['articleid']);
         while($comment = $comments->fetch())
         {
             ?>
