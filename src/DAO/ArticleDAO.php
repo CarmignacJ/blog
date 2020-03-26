@@ -2,7 +2,7 @@
 //Pour toutes les classes dans DAO
 namespace App\src\DAO;
 
-class ArticleDAO extends Database
+class ArticleDAO extends DAO
 {
     public function getArticles()
     {

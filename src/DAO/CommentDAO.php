@@ -2,7 +2,7 @@
 //Pour toutes les classes dans DAO
 namespace App\src\DAO;
 
-class CommentDAO extends Database
+class CommentDAO extends DAO
 {
     public function getCommentsFromArticle($articleid)
     {
