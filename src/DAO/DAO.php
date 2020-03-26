@@ -1,4 +1,10 @@
 <?php
+//Pour toutes les classes dans DAO
+namespace App\src\DAO;
+
+//Uniquement pour la classe DAO
+use PDO;
+use Exception;
 
 abstract class Database
 {

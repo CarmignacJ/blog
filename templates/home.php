@@ -1,8 +1,9 @@
 <?php
-//On inclut le fichier dont on a besoin (ici à la racine de notre site)
+
 require '../src/DAO/DAO.php';
-//Ne pas oublier d'ajouter le fichier Article.php
 require '../src/DAO/ArticleDAO.php';
+
+use App\src\DAO\ArticleDAO;
 
 ?>
 
@@ -19,7 +20,7 @@ require '../src/DAO/ArticleDAO.php';
             <p>En construction</p>
             
             <?php
-            $article = new Article();
+            $article = new ArticleDAO();
             $articles = $article->getArticles();
             while($article = $articles->fetch())
             {

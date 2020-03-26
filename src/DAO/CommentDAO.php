@@ -1,6 +1,8 @@
 <?php
+//Pour toutes les classes dans DAO
+namespace App\src\DAO;
 
-class Comment extends Database
+class CommentDAO extends Database
 {
     public function getCommentsFromArticle($articleid)
     {
