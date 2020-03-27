@@ -1,7 +1,5 @@
 <?php
 
-require '../vendor/autoload.php';
-
 use App\src\DAO\ArticleDAO;
 
 ?>
@@ -25,7 +23,7 @@ use App\src\DAO\ArticleDAO;
             {
                 ?>
                 <div>
-                    <h2><a href="single.php?articleid=<?= htmlspecialchars($article->id);?>"><?= htmlspecialchars($article->title);?></a></h2>
+                <h2><a href="../public/index.php?route=article&articleid=<?= htmlspecialchars($article->id);?>"><?= htmlspecialchars($article->title);?></a></h2>
                     <p><?= htmlspecialchars($article->content);?></p>
                     <p><?= htmlspecialchars($article->author);?></p>
                     <p>Créé le : <?= htmlspecialchars($article->createdAt);?></p>
