@@ -30,12 +30,20 @@ class ArticleDAO extends DAO
         return $articles;
     }
 
-    public function getArticle($articleid)
+    public function getArticle($articleId)
     {
         $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
-        $result = $this->createQuery($sql, [$articleid]);
+        $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
         $result->closeCursor();
         return $this->buildObject($article);
+    }
+
+    public function addArticle($article)
+    {
+        //Permet de récupérer les variables $title, $content et $author
+        extract($article);
+        $sql = 'INSERT INTO article (title, content, author, createdAt) VALUES (?, ?, ?, NOW())';
+        $this->createQuery($sql, [$title, $content, $author]);
     }
 }
