@@ -23,12 +23,13 @@ class Router
 
     public function run()
     {
+        $this->request->getSession()->set('test', 'value');
         $route = $this->request->getGet()->get('route');
         try{
             if(isset($route))
             {
                 if($route === 'article'){
-                    $this->frontController->article($this->request->getGet()->get('articleId'));
+                    $this->frontController->article($this->request->getGet()->get('articleid'));
                 }
                 elseif ($route === 'addArticle'){
                     $this->backController->addArticle($this->request->getPost());
