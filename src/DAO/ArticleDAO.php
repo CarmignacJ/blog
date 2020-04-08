@@ -45,7 +45,7 @@ class ArticleDAO extends DAO
         $sql = 'INSERT INTO article (title, content, author, createdAt) VALUES (?, ?, ?, NOW())';
         $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')]);
     }
-    
+
     public function editArticle(Parameter $post, $articleid)
     {
         $sql = 'UPDATE article SET title=:title, content=:content, author=:author WHERE id=:articleid';
@@ -53,6 +53,15 @@ class ArticleDAO extends DAO
             'title' => $post->get('title'),
             'content' => $post->get('content'),
             'author' => $post->get('author'),
-            'articleid' => $articleid]);
+            'articleid' => $articleid
+        ]);
+    }
+
+    public function deleteArticle($articleid)
+    {
+        $sql = 'DELETE FROM comment WHERE article_id = ?';
+        $this->createQuery($sql, [$articleid]);
+        $sql = 'DELETE FROM article WHERE id = ?';
+        $this->createQuery($sql, [$articleid]);
     }
 }
