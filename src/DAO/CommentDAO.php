@@ -33,8 +33,8 @@ class CommentDAO extends DAO
 
     public function addComment(Parameter $post, $articleid)
     {
-        $sql = 'INSERT INTO comment (pseudo, content, createdAt, flag, article_id) VALUES (?, ?, NOW(), ?, ?)';
-        $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), 0, $articleid]);
+        $sql = 'INSERT INTO comment (pseudo, content, createdAt, article_id) VALUES (?, ?, NOW(), ?)';
+        $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), $articleid]);
     }
 
     public function flagComment($commentid)
