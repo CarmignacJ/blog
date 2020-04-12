@@ -43,4 +43,11 @@ class FrontController extends Controller
             ]);
         }
     }
+
+    public function flagComment($commentid)
+    {
+        $this->commentDAO->flagComment($commentid);
+        $this->session->set('flag_comment', 'Le commentaire a bien été signalé');
+        header('Location: ../public/index.php');
+    }
 }
