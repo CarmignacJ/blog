@@ -9,8 +9,8 @@
 </div>
 <br>
 <div class="actions">
-    <a href="../public/index.php?route=editArticle&articleid=<?= $article->getId(); ?>">Modifier</a>
-    <a href="../public/index.php?route=deleteArticle&articleid=<?= $article->getId(); ?>">Supprimer</a>
+    <a href="../public/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a>
+    <a href="../public/index.php?route=deleteArticle&articleId=<?= $article->getId(); ?>">Supprimer</a>
 </div>
 <br>
 <a href="../public/index.php">Retour à l'accueil</a>
@@ -32,11 +32,11 @@
             <?php
         } else {
             ?>
-            <p><a href="../public/index.php?route=flagComment&commentid=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+            <p><a href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
             <?php
         }
         ?>
-        <p><a href="../public/index.php?route=deleteComment&commentid=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
+        <p><a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
         <br>
         <?php
     }

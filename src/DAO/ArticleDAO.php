@@ -24,17 +24,17 @@ class ArticleDAO extends DAO
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
-            $articleid = $row['id'];
-            $articles[$articleid] = $this->buildObject($row);
+            $articleId = $row['id'];
+            $articles[$articleId] = $this->buildObject($row);
         }
         $result->closeCursor();
         return $articles;
     }
 
-    public function getArticle($articleid)
+    public function getArticle($articleId)
     {
         $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
-        $result = $this->createQuery($sql, [$articleid]);
+        $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
         $result->closeCursor();
         return $this->buildObject($article);
@@ -46,22 +46,22 @@ class ArticleDAO extends DAO
         $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')]);
     }
 
-    public function editArticle(Parameter $post, $articleid)
+    public function editArticle(Parameter $post, $articleId)
     {
         $sql = 'UPDATE article SET title=:title, content=:content, author=:author WHERE id=:articleid';
         $this->createQuery($sql, [
             'title' => $post->get('title'),
             'content' => $post->get('content'),
             'author' => $post->get('author'),
-            'articleid' => $articleid
+            'articleid' => $articleId
         ]);
     }
 
-    public function deleteArticle($articleid)
+    public function deleteArticle($articleId)
     {
         $sql = 'DELETE FROM comment WHERE article_id = ?';
-        $this->createQuery($sql, [$articleid]);
+        $this->createQuery($sql, [$articleId]);
         $sql = 'DELETE FROM article WHERE id = ?';
-        $this->createQuery($sql, [$articleid]);
+        $this->createQuery($sql, [$articleId]);
     }
 }

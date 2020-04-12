@@ -23,13 +23,13 @@ class BackController extends Controller
         return $this->view->render('add_article');
     }
 
-    public function editArticle(Parameter $post, $articleid)
+    public function editArticle(Parameter $post, $articleId)
     {
-        $article = $this->articleDAO->getArticle($articleid);
+        $article = $this->articleDAO->getArticle($articleId);
         if($post->get('submit')) {
             $errors = $this->validation->validate($post, 'Article');
             if(!$errors) {
-                $this->articleDAO->editArticle($post, $articleid);
+                $this->articleDAO->editArticle($post, $articleId);
                 $this->session->set('edit_article', 'L\' article a bien été modifié');
                 header('Location: ../public/index.php');
             }
@@ -49,16 +49,16 @@ class BackController extends Controller
         ]);
     }
 
-    public function deleteArticle($articleid)
+    public function deleteArticle($articleId)
     {
-        $this->articleDAO->deleteArticle($articleid);
+        $this->articleDAO->deleteArticle($articleId);
         $this->session->set('delete_article', 'L\' article a bien été supprimé');
         header('Location: ../public/index.php');
     }
 
-    public function deleteComment($commentid)
+    public function deleteComment($commentId)
     {
-        $this->commentDAO->deleteComment($commentid);
+        $this->commentDAO->deleteComment($commentId);
         $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
         header('Location: ../public/index.php');
     }
